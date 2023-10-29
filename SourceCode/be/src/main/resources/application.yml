@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/RA
+    username: postgres
+    password: 12345678
+  jpa:
+    show-sql: true
+
+springdoc:
+  swagger-ui:
+    path: swagger-ui
+
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.sql: INFO
+  config: classpath:logback.xml
+
+
