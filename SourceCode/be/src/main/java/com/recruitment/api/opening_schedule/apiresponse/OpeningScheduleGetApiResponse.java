@@ -12,28 +12,28 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class OpeningScheduleGetApiResponse {
 
-    @JsonProperty("courseId")
-    public Long courseId;
+  @JsonProperty("courseId")
+  public Long courseId;
 
-    @JsonProperty("name")
-    public String name;
+  @JsonProperty("name")
+  public String name;
 
-    @JsonProperty("code")
-    public String code;
+  @JsonProperty("code")
+  public String code;
 
-    @JsonProperty("description")
-    public String description;
+  @JsonProperty("description")
+  public String description;
 
-    @JsonProperty("createdBy")
-    public String createdBy;
+  @JsonProperty("createdBy")
+  public String createdBy;
 
-    @JsonProperty("createdAt")
-    public LocalDateTime createdAt;
+  @JsonProperty("createdAt")
+  public LocalDateTime createdAt;
 
-    @JsonProperty("updatedBy")
-    public String updatedBy;
+  @JsonProperty("updatedBy")
+  public String updatedBy;
 
-    @JsonProperty("updatedAt")
-    public LocalDateTime updatedAt;
+  @JsonProperty("updatedAt")
+  public LocalDateTime updatedAt;
 
 }

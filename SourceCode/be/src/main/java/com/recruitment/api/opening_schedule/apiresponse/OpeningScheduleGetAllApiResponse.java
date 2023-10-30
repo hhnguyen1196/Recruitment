@@ -1,36 +1,32 @@
 package com.recruitment.api.opening_schedule.apiresponse;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
 
 import java.time.LocalDate;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Builder
 public class OpeningScheduleGetAllApiResponse {
 
-    @JsonProperty("openingScheduleId")
-    private Long openingScheduleId;
+  @JsonProperty("openingScheduleId")
+  private Long openingScheduleId;
 
-    @JsonProperty("courseName")
-    private String courseName;
+  @JsonProperty("courseName")
+  private String courseName;
 
-    @JsonProperty("openingDay")
-    private LocalDate openingDay;
+  @JsonProperty("openingDay")
+  private LocalDate openingDay;
 
-    @JsonProperty("schedule")
-    private String schedule;
+  @JsonProperty("schedule")
+  private String schedule;
 
-    @JsonProperty("time")
-    private Integer time;
+  @JsonProperty("time")
+  private Integer time;
 
-    @JsonProperty("numberOfStudent")
-    private String numberOfStudent;
+  @JsonProperty("numberOfStudent")
+  private String numberOfStudent;
 
-    @JsonProperty("provinceName")
-    private String provinceName;
+  @JsonProperty("provinceName")
+  private String provinceName;
 
 }

@@ -7,6 +7,6 @@ import lombok.Getter;
 @Builder
 public class OpeningScheduleGetApiRequest {
 
-    private Long courseId;
+  private Long courseId;
 
 }
