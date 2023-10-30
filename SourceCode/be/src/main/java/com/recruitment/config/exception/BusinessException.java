@@ -12,18 +12,18 @@ import java.util.Objects;
 @NoArgsConstructor
 public class BusinessException extends RuntimeException {
 
-    private HttpStatus status;
+  private HttpStatus status;
 
-    public BusinessException(HttpStatus status) {
-        this.status = Objects.nonNull(status) ? status : HttpStatus.INTERNAL_SERVER_ERROR;
-    }
+  public BusinessException(HttpStatus status) {
+    this.status = Objects.nonNull(status) ? status : HttpStatus.INTERNAL_SERVER_ERROR;
+  }
 
-    public BusinessException(String message) {
-        super(message);
-    }
+  public BusinessException(String message) {
+    super(message);
+  }
 
-    public BusinessException(HttpStatus status, String message) {
-        super(message);
-        this.status = Objects.nonNull(status) ? status : HttpStatus.INTERNAL_SERVER_ERROR;
-    }
+  public BusinessException(HttpStatus status, String message) {
+    super(message);
+    this.status = Objects.nonNull(status) ? status : HttpStatus.INTERNAL_SERVER_ERROR;
+  }
 }

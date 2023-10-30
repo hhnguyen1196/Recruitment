@@ -1,4 +1,4 @@
-package com.recruitment.entity;
+package com.recruitment.entity.client;
 
 public class AdvertisementRecruitment {
 }
