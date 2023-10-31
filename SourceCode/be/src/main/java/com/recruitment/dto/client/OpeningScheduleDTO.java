@@ -20,5 +20,5 @@ public class OpeningScheduleDTO {
 
   private Integer numberOfStudent;
 
-  private Integer provinceId;
+  private String provinceName;
 }
