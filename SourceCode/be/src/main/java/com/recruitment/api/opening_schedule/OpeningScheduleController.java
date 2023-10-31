@@ -1,6 +1,5 @@
 package com.recruitment.api.opening_schedule;
 
-import com.recruitment.api.opening_schedule.apirequest.OpeningScheduleGetApiRequest;
 import com.recruitment.api.opening_schedule.apiresponse.OpeningScheduleGetAllApiResponse;
 import com.recruitment.api.opening_schedule.apiresponse.OpeningScheduleGetApiResponse;
 import com.recruitment.api.opening_schedule.usecase.OpeningScheduleUseCase;
@@ -9,10 +8,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
 
 @RestController
 @RequiredArgsConstructor
@@ -26,10 +23,9 @@ public class OpeningScheduleController {
     return ResponseDataConfiguration.success(useCase.openingScheduleGetAllApiResponse());
   }
 
-  @PostMapping(value = "/opening-schedule")
+  @GetMapping(value = "/opening-schedules/{id}")
   @Operation(summary = "Get opening schedule by id")
-  public ResponseEntity<OpeningScheduleGetApiResponse> getOpeningSchedule(@RequestBody
-      OpeningScheduleGetApiRequest request) {
-    return ResponseDataConfiguration.success(useCase.openingScheduleGetApiResponse(request));
+  public ResponseEntity<OpeningScheduleGetApiResponse> getOpeningSchedule(@PathVariable Long id) {
+    return ResponseDataConfiguration.success(useCase.openingScheduleGetApiResponse(id));
   }
 }

@@ -1,6 +1,5 @@
 package com.recruitment.api.opening_schedule.usecase;
 
-import com.recruitment.api.opening_schedule.apirequest.OpeningScheduleGetApiRequest;
 import com.recruitment.api.opening_schedule.apiresponse.OpeningScheduleGetAllApiResponse;
 import com.recruitment.api.opening_schedule.apiresponse.OpeningScheduleGetApiResponse;
 import com.recruitment.config.exception.BusinessException;
@@ -25,10 +24,9 @@ public class OpeningScheduleUseCase {
         .build();
   }
 
-  public OpeningScheduleGetApiResponse openingScheduleGetApiResponse(
-      OpeningScheduleGetApiRequest request) {
+  public OpeningScheduleGetApiResponse openingScheduleGetApiResponse(Long id) {
     OpeningScheduleDTO openingScheduleDTO = repository.findOpeningScheduleById(
-        request.getOpeningScheduleId()).orElseThrow(() -> new BusinessException(HttpStatus.BAD_REQUEST));
+        id).orElseThrow(() -> new BusinessException(HttpStatus.BAD_REQUEST));
     return OpeningScheduleGetApiResponse
         .builder()
         .openingSchedule(openingScheduleDTO)
