@@ -1,9 +1,11 @@
 package com.recruitment.util;
 
+import com.recruitment.config.exception.BusinessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 
 @Slf4j
 public class DBUtil {
@@ -15,6 +17,7 @@ public class DBUtil {
       }
     } catch (Exception ex) {
       log.error(ex.getMessage(), ex);
+      throw new BusinessException(HttpStatus.BAD_REQUEST);
     }
     try {
       if (Objects.nonNull(connection)) {
@@ -22,6 +25,7 @@ public class DBUtil {
       }
     } catch (Exception ex) {
       log.error(ex.getMessage(), ex);
+      throw new BusinessException(HttpStatus.BAD_REQUEST);
     }
   }
 }
