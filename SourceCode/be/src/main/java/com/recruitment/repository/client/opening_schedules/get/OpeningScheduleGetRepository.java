@@ -9,11 +9,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-/**
- * Repository for OpeningSchedule
- *
- * @author HaiNH
- */
 @Repository
 public interface OpeningScheduleGetRepository extends CrudRepository<OpeningSchedule, Long> {
 
