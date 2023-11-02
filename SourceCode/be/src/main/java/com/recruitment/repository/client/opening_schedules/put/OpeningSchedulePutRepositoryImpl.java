@@ -1,6 +1,6 @@
-package com.recruitment.repository.client.opening_schedules.post;
+package com.recruitment.repository.client.opening_schedules.put;
 
-import com.recruitment.api.opening_schedule.post.apirequest.OpeningSchedulePostApiRequest;
+import com.recruitment.api.opening_schedule.put.apirequest.OpeningSchedulePutApiRequest;
 import com.recruitment.config.exception.BusinessException;
 import com.recruitment.util.DBUtil;
 import java.sql.Connection;
@@ -18,18 +18,18 @@ import org.springframework.stereotype.Repository;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class OpeningSchedulePostRepositoryImpl implements OpeningSchedulePostRepository {
+public class OpeningSchedulePutRepositoryImpl implements OpeningSchedulePutRepository {
 
   private final DataSource dataSource;
 
   private static final String ADMIN = "ADMIN";
 
   @Override
-  public void insert(OpeningSchedulePostApiRequest request) {
-    final String query = "INSERT INTO client.opening_schedule"
-        + "(course_name, opening_day, schedule, time, number_of_student, province_id, created_at, "
-        + "created_by, updated_at, updated_by) "
-        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+  public void update(Long id, OpeningSchedulePutApiRequest request) {
+    final String query = "UPDATE client.opening_schedule "
+        + "SET course_name = ?, opening_day = ?, schedule = ?, time = ?, number_of_student = ?, "
+        + "province_id = ?, updated_at = ?, updated_by = ? "
+        + "WHERE opening_schedule_id = ?";
     Connection connection = null;
     PreparedStatement statement = null;
     try {
@@ -45,12 +45,11 @@ public class OpeningSchedulePostRepositoryImpl implements OpeningSchedulePostRep
       statement.setInt(6, request.getProvinceId());
       statement.setTimestamp(7, Timestamp.valueOf(LocalDateTime.now()));
       statement.setString(8, ADMIN);
-      statement.setTimestamp(9, Timestamp.valueOf(LocalDateTime.now()));
-      statement.setString(10, ADMIN);
+      statement.setLong(9, id);
       statement.execute();
     } catch (Exception ex) {
       log.error(ex.getMessage(), ex);
-      throw new BusinessException(HttpStatus.BAD_REQUEST, "Failed to create to database");
+      throw new BusinessException(HttpStatus.BAD_REQUEST, "Failed to update to database");
     } finally {
       DBUtil.closeConnection(statement, connection);
     }
