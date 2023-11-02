@@ -1,4 +1,4 @@
-package com.recruitment.api.opening_schedule.apiresponse;
+package com.recruitment.api.opening_schedule.get.apiresponse;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.recruitment.dto.client.OpeningScheduleDTO;
@@ -9,5 +9,4 @@ public class OpeningScheduleGetApiResponse {
 
   @JsonProperty("openingSchedule")
   private OpeningScheduleDTO openingSchedule;
-
 }

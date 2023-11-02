@@ -1,4 +1,4 @@
-package com.recruitment.repository.client.opening_schedules;
+package com.recruitment.repository.client.opening_schedules.get;
 
 import com.recruitment.dto.client.OpeningScheduleDTO;
 import com.recruitment.entity.client.OpeningSchedule;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
  * @author HaiNH
  */
 @Repository
-public interface OpeningScheduleRepository extends CrudRepository<OpeningSchedule, Long> {
+public interface OpeningScheduleGetRepository extends CrudRepository<OpeningSchedule, Long> {
 
   @Query("SELECT new com.recruitment.dto.client.OpeningScheduleDTO(os.openingScheduleId, "
       + "os.courseName, os.openingDay, os.schedule, os.time, os.numberOfStudent, p.name) "
