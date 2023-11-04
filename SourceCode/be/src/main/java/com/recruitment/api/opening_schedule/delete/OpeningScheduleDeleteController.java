@@ -1,7 +1,6 @@
 package com.recruitment.api.opening_schedule.delete;
 
 import com.recruitment.api.opening_schedule.delete.usecase.OpeningScheduleDeleteUseCase;
-import com.recruitment.api.opening_schedule.put.usecase.OpeningSchedulePutUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +15,7 @@ public class OpeningScheduleDeleteController {
 
   private final OpeningScheduleDeleteUseCase useCase;
 
-  @ResponseStatus(HttpStatus.CREATED)
+  @ResponseStatus(HttpStatus.NO_CONTENT)
   @DeleteMapping("/opening-schedules/{id}")
   @Operation(summary = "Delete opening schedule")
   public void updateOpeningSchedule(@PathVariable Long id) {
