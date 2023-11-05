@@ -1,4 +1,4 @@
-import {createContext, ReactNode, useReducer} from "react";
+import {createContext, ReactNode, useCallback, useReducer} from "react";
 import axios from "axios";
 import {host} from "../../environments/host.ts";
 import {API} from "../../environments/api.ts";
@@ -81,7 +81,7 @@ function reducer(state: State, action: Action): State {
 const OpeningScheduleProvider = ({children}: Props) => {
   const [{openingScheduleList, openingSchedule, isLoading, error},
     dispatch] = useReducer(reducer, initialState);
-  async function getAllOpeningSchedule() {
+  const getAllOpeningSchedule = useCallback(async function() {
     try {
       const {data} = await axios.get(host(`${API.OPENING_SCHEDULE}`),
         {
@@ -94,7 +94,7 @@ const OpeningScheduleProvider = ({children}: Props) => {
     } catch (error) {
       throw new Error("Network Error");
     }
-  }
+  }, [])
   return (
     <OpeningScheduleContext.Provider 
       value={{
