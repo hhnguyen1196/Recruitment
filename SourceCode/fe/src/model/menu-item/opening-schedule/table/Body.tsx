@@ -6,7 +6,7 @@ import useOpeningSchedule from "../../../../context/opening-schedule/useOpeningS
 const Body = () => {
   const {openingScheduleList, getAllOpeningSchedule} = useOpeningSchedule();
   useEffect(() => {
-    return getAllOpeningSchedule();
+    getAllOpeningSchedule();
   }, [getAllOpeningSchedule]);
   return (
     <tbody className="text-stone-900 text-[15px]">

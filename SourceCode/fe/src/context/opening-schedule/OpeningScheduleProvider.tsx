@@ -98,7 +98,7 @@ const OpeningScheduleProvider = ({children}: Props) => {
   return (
     <OpeningScheduleContext.Provider 
       value={{
-        openingScheduleList, 
+        openingScheduleList,
         openingSchedule, 
         isLoading, 
         error,
