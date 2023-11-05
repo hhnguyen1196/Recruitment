@@ -3,8 +3,9 @@ import Home from "../../model/menu-item/home/Home.tsx";
 import OpeningSchedule from "../../model/menu-item/opening-schedule/OpeningSchedule.tsx";
 import Recruitment from "../../model/menu-item/recruitment/Recruitment.tsx";
 import Contact from "../../model/menu-item/contact/Contact.tsx";
+import OpeningScheduleProvider from "../../context/opening-schedule/OpeningScheduleProvider.tsx";
 
-export const menuItem: RouteObject[] = [
+export const routes: RouteObject[] = [
   {
     index: true,
     element: <Navigate replace to={"/home"}/>
@@ -19,7 +20,11 @@ export const menuItem: RouteObject[] = [
   },
   {
     path: "opening-schedule",
-    element: <OpeningSchedule/>
+    element: (
+      <OpeningScheduleProvider>
+        <OpeningSchedule/>
+      </OpeningScheduleProvider>
+    )
   },
   {
     path: "contact",
